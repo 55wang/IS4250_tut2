@@ -1,0 +1,58 @@
+---
+title: "Tutorial 2"
+author: "Wang Zhe"
+date: "Febrary 3, 2016"
+output: md_document
+---
+
+```{r, message=FALSE, echo=FALSE}
+setwd('/Users/wang/Desktop')
+data = read.csv('labs.csv')
+
+library(ggplot2)
+library(dplyr)
+library(plyr)
+#head(data)
+"1a i)"
+paste("Statistical Index: ", mean(data$WaitTime))
+barplot(data$WaitTime)
+abline(h=mean(data$WaitTime))
+
+"The KPI of Waiting time is 69.77"
+
+"1a ii)"
+mytable <- table(data$SvcSat)
+piepercent<- round(100*mytable/sum(mytable), 1)
+mytable <-piepercent
+lbls <- paste(names(mytable), "\n", mytable, sep="")
+pie(mytable, labels = lbls, 
+    main="Pie Chart of Service Satisfaction\n (with sample sizes %)")
+"The KPI of Service Satisfaction is 83.4%"
+
+"1b"
+data$newSat[data$SvcSat=='Y']=1
+data$newSat[data$SvcSat=='N']=0
+data$newGen[data$Gender=='M']=1
+data$newGen[data$Gender=='F']=0
+
+nrow(data)
+
+ggplot(data, aes(data$AGE,data$newSat)) + geom_point()+geom_smooth()
+
+summary(lm(data$newSat ~ data$AGE + data$newGen))
+"As we can see the p-value is small, there is correlationship between Service Satisfation and AGE"
+"the slope is negative for Age, it shows us that younger people has higher service satisfaction."
+"the slope is negative for Gender, it shows us that female has higher service satisfaction than male."
+
+"1c"
+summary(lm(data$newSat ~ data$WaitTime))
+ggplot(data, aes(data$newSat, data$WaitTime)) + geom_line()
+"It shows that shorter wait time has higher service satisfaction."
+
+"1d"
+data <- mutate(data, BMI = WT/(HT*HT))
+head(data$BMI)
+data$BMI
+data$TC
+
+```
