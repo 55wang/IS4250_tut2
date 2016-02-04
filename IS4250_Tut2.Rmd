@@ -14,15 +14,15 @@ library(dplyr)
 library(plyr)
 ```
 
-1a i)
+## 1a i)
 ```{r, message=FALSE, echo=FALSE}
 paste("Statistical Index: ", mean(data$WaitTime))
 barplot(data$WaitTime)
 abline(h=mean(data$WaitTime))
 ```
-The KPI of Waiting time is 69.77
+The KPI of Waiting time is 69.77  
 
-1a ii)
+## 1a ii)
 ```{r, message=FALSE, echo=FALSE}
 mytable <- table(data$SvcSat)
 piepercent<- round(100*mytable/sum(mytable), 1)
@@ -30,9 +30,9 @@ mytable <-piepercent
 lbls <- paste(names(mytable), "\n", mytable, sep="")
 pie(mytable, labels = lbls, main="Pie Chart of Service Satisfaction\n (with sample sizes %)")
 ```
-The KPI of Service Satisfaction is 83.4%
+The KPI of Service Satisfaction is 83.4%  
 
-1b
+## 1b  
 ```{r, message=FALSE, echo=FALSE}
 data$newSat[data$SvcSat=='Y']=1
 data$newSat[data$SvcSat=='N']=0
@@ -43,33 +43,33 @@ ggplot(data, aes(data$AGE,data$newSat)) + geom_point()+geom_smooth()
 
 summary(lm(data$newSat ~ data$AGE + data$newGen))
 ```
-As we can see the p-value is small, there is negative coefficient between Service Satisfation and AGE.
-The slope is negative for Age, it shows us that younger people has higher service satisfaction.
-The slope is negative for Gender, it shows us that female has higher service satisfaction than male.
+As we can see the p-value is small, there is negative coefficient between Service Satisfation and AGE.  
+The slope is negative for Age, it shows us that younger people has higher service satisfaction.  
+The slope is negative for Gender, it shows us that female has higher service satisfaction than male.  
 
-1c
+## 1c  
 ```{r, message=FALSE, echo=FALSE}
 cor.test(data$newSat,data$WaitTime)
 ggplot(data, aes(data$newSat, data$WaitTime)) + geom_line()
 ```
-It has a -0.53, a strong negative correlation between wait time and service satisfaction.
-It shows that shorter wait time has higher service satisfaction.
+It has a -0.53, a strong negative correlation between wait time and service satisfaction.  
+It shows that shorter wait time has higher service satisfaction.  
 
-1d
+## 1d  
 ```{r, message=FALSE, echo=FALSE}
 data <- mutate(data, BMI = WT/(HT*HT))
 cor.test(data$BMI, as.integer(data$TC))
 plot(data$BMI, as.integer(data$TC), main="Scatterplot", xlab="BMI", ylab="Total Cholesterol", pch=19)
 ```
-It has a 0.48, a medium positive correlation between bmi and total cholesterol.
-A higher BMI may lead to High Total Cholesterol.
+It has a 0.48, a medium positive correlation between bmi and total cholesterol.   
+A higher BMI may lead to High Total Cholesterol.  
 
-1e
+## 1e
 ```{r, message=FALSE, echo=FALSE}
 fit <- lm(BMI~AGE+SBP+as.integer(TC), data = data)
 predict(fit, newdata = data.frame(AGE=45, SBP=135, TC=150))
 ```
-The predicted BMI is 29.78
-The assumption is that there is correlation between BMI and age, systolic blood pressure, total cholesterol.
-But this does not imply there is casuation.
+The predicted BMI is 29.78  
+The assumption is that there is correlation between BMI and age, systolic blood pressure, total cholesterol.  
+But this does not imply there is casuation.  
 

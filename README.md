@@ -1,4 +1,5 @@
 1a i)
+-----
 
     ## [1] "Statistical Index:  69.7682119205298"
 
@@ -6,10 +7,15 @@
 The KPI of Waiting time is 69.77
 
 1a ii)
+------
+
 ![](IS4250_Tut2_files/figure-markdown_strict/unnamed-chunk-3-1.png)  
 The KPI of Service Satisfaction is 83.4%
 
-1b ![](IS4250_Tut2_files/figure-markdown_strict/unnamed-chunk-4-1.png)  
+1b
+--
+
+![](IS4250_Tut2_files/figure-markdown_strict/unnamed-chunk-4-1.png)  
 
     ## 
     ## Call:
@@ -32,12 +38,14 @@ The KPI of Service Satisfaction is 83.4%
     ## F-statistic:  19.8 on 2 and 148 DF,  p-value: 2.394e-08
 
 As we can see the p-value is small, there is negative coefficient
-between Service Satisfation and AGE. The slope is negative for Age, it
-shows us that younger people has higher service satisfaction. The slope
-is negative for Gender, it shows us that female has higher service
-satisfaction than male.
+between Service Satisfation and AGE.  
+The slope is negative for Age, it shows us that younger people has
+higher service satisfaction.  
+The slope is negative for Gender, it shows us that female has higher
+service satisfaction than male.
 
 1c
+--
 
     ## 
     ##  Pearson's product-moment correlation
@@ -53,10 +61,11 @@ satisfaction than male.
 
 ![](IS4250_Tut2_files/figure-markdown_strict/unnamed-chunk-5-1.png)  
 It has a -0.53, a strong negative correlation between wait time and
-service satisfaction. It shows that shorter wait time has higher service
-satisfaction.
+service satisfaction.  
+It shows that shorter wait time has higher service satisfaction.
 
 1d
+--
 
     ## 
     ##  Pearson's product-moment correlation
@@ -72,13 +81,16 @@ satisfaction.
 
 ![](IS4250_Tut2_files/figure-markdown_strict/unnamed-chunk-6-1.png)  
 It has a 0.48, a medium positive correlation between bmi and total
-cholesterol. A higher BMI may lead to High Total Cholesterol.
+cholesterol.  
+A higher BMI may lead to High Total Cholesterol.
 
 1e
+--
 
     ##        1 
     ## 29.78424
 
-The predicted BMI is 29.78 The assumption is that there is correlation
-between BMI and age, systolic blood pressure, total cholesterol. But
-this does not imply there is casuation.
+The predicted BMI is 29.78  
+The assumption is that there is correlation between BMI and age,
+systolic blood pressure, total cholesterol.  
+But this does not imply there is casuation.
