@@ -43,17 +43,17 @@ ggplot(data, aes(data$AGE,data$newSat)) + geom_point()+geom_smooth()
 
 summary(lm(data$newSat ~ data$AGE + data$newGen))
 ```
-As we can see the p-value is small, there is negative coefficient between Service Satisfation and AGE
-the slope is negative for Age, it shows us that younger people has higher service satisfaction
-the slope is negative for Gender, it shows us that female has higher service satisfaction than male
+As we can see the p-value is small, there is negative coefficient between Service Satisfation and AGE.
+The slope is negative for Age, it shows us that younger people has higher service satisfaction.
+The slope is negative for Gender, it shows us that female has higher service satisfaction than male.
 
 1c
 ```{r, message=FALSE, echo=FALSE}
 cor.test(data$newSat,data$WaitTime)
 ggplot(data, aes(data$newSat, data$WaitTime)) + geom_line()
 ```
-It has a -0.53, a strong negative correlation between wait time and service satisfaction
-It shows that shorter wait time has higher service satisfaction
+It has a -0.53, a strong negative correlation between wait time and service satisfaction.
+It shows that shorter wait time has higher service satisfaction.
 
 1d
 ```{r, message=FALSE, echo=FALSE}
@@ -62,7 +62,7 @@ cor.test(data$BMI, as.integer(data$TC))
 plot(data$BMI, as.integer(data$TC), main="Scatterplot", xlab="BMI", ylab="Total Cholesterol", pch=19)
 ```
 It has a 0.48, a medium positive correlation between bmi and total cholesterol.
-A higher BMI may lead to High Total Cholesterol
+A higher BMI may lead to High Total Cholesterol.
 
 1e
 ```{r, message=FALSE, echo=FALSE}
@@ -70,6 +70,6 @@ fit <- lm(BMI~AGE+SBP+as.integer(TC), data = data)
 predict(fit, newdata = data.frame(AGE=45, SBP=135, TC=150))
 ```
 The predicted BMI is 29.78
-The assumption is that there is correlation between BMI and age, systolic blood pressure, total cholesterol
-But this does not imply there is casuation
+The assumption is that there is correlation between BMI and age, systolic blood pressure, total cholesterol.
+But this does not imply there is casuation.
 
